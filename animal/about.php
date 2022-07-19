@@ -1,6 +1,12 @@
 <?php 
+require_once "scripts/config.php";
 include "finder.php";
-include "patials/header.php"
+include "patials/header.php";
+
+if($_SESSION["loggedin"]!=""){
+}else{
+   header('location:./login.php');
+}
 ?>
 
 
@@ -28,7 +34,7 @@ include "patials/header.php"
                          <div class="feature-thumb">
                               <span>Dev</span>
                               <h3>Developers</h3>
-                              <p>This software was developed and its being maintained by Yollander Nyasha Sinedi. For any technical problems contact me on <b>+263 363 3636</b>. I personaly appriciate that youre using my product</p>
+                              <p>This software was developed and its being maintained by <a href="https://github.com//recusants">Tinashe Mphisa</a>. For any technical problems contact me on <b><a href="tel:+263784851863">+263784851863</a></b>. I personaly appriciate that youre using my product</p>
                          </div>
                     </div>
 

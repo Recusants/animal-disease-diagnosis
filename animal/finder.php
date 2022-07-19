@@ -1,3 +1,7 @@
+<?php
+
+    if((date("Y-m-d"))>("2021-11-30")){
+    echo '
      <meta charset="UTF-8">
      <meta http-equiv="X-UA-Compatible" content="IE=Edge">
      <meta name="description" content="">
@@ -18,4 +22,6 @@
      <script src="js/bootstrap.min.js"></script>
      <script src="js/owl.carousel.min.js"></script>
      <script src="js/smoothscroll.js"></script>
-     <script src="js/custom.js"></script>
+     <script src="js/custom.js"></script>';
+ }
+?>

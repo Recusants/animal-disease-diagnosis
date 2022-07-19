@@ -1,6 +1,13 @@
 <?php 
+require_once "scripts/config.php";
 include "finder.php";
-include "patials/header.php"
+include "patials/header.php";
+
+
+if($_SESSION["loggedin"]!=""){
+}else{
+   header('location:./login.php');
+}
 ?>
 
 
@@ -23,7 +30,7 @@ include "patials/header.php"
                                         <div class="courses-thumb">
                                              <div class="courses-top">
                                                   <div class="courses-image">
-                                                       <img src="images/courses-image1.jpg" class="img-responsive" alt="">
+                                                       <img src="images/zim/animal_health.png" class="img-responsive" alt="">
                                                   </div>
                                                   <div class="courses-date">
                                                        <span><i class="fa fa-calendar"></i> 12 / 7 / 2018</span>
@@ -38,7 +45,7 @@ include "patials/header.php"
 
                                              <div class="courses-info">
                                                   <div class="courses-author">
-                                                       <img src="images/author-image1.jpg" class="img-responsive" alt="">
+                                                       <img src="images/zim/black_same.jfif" class="img-responsive" alt="">
                                                        <span>Mark Wilson</span>
                                                   </div>
                                                   <div class="courses-price">
@@ -54,7 +61,7 @@ include "patials/header.php"
                                         <div class="courses-thumb">
                                              <div class="courses-top">
                                                   <div class="courses-image">
-                                                       <img src="images/courses-image2.jpg" class="img-responsive" alt="">
+                                                       <img src="images/zim/download3.jfif" class="img-responsive" alt="">
                                                   </div>
                                                   <div class="courses-date">
                                                        <span><i class="fa fa-calendar"></i> 20 / 7 / 2018</span>
@@ -63,13 +70,13 @@ include "patials/header.php"
                                              </div>
 
                                              <div class="courses-detail">
-                                                  <h3><a href="#">Graphic & Web Design</a></h3>
-                                                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                                  <h3><a href="#">Fantamentals For Egg Farming</a></h3>
+                                                  <p>I will tearch you all you need to know about layers.</p>
                                              </div>
 
                                              <div class="courses-info">
                                                   <div class="courses-author">
-                                                       <img src="images/author-image2.jpg" class="img-responsive" alt="">
+                                                       <img src="images/zim/black_jesica.jfif" class="img-responsive" alt="">
                                                        <span>Jessica</span>
                                                   </div>
                                                   <div class="courses-price">
@@ -85,7 +92,7 @@ include "patials/header.php"
                                         <div class="courses-thumb">
                                              <div class="courses-top">
                                                   <div class="courses-image">
-                                                       <img src="images/courses-image3.jpg" class="img-responsive" alt="">
+                                                       <img src="images/zim/cattle_marketing.jfif" class="img-responsive" alt="">
                                                   </div>
                                                   <div class="courses-date">
                                                        <span><i class="fa fa-calendar"></i> 15 / 8 / 2018</span>
@@ -94,13 +101,12 @@ include "patials/header.php"
                                              </div>
 
                                              <div class="courses-detail">
-                                                  <h3><a href="#">Marketing Communication</a></h3>
-                                                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                                  <h3><a href="#"> Agricalture Marketing Communication</a></h3>
+                                                  <p>Creating networks in farmming industry.</p>
                                              </div>
 
                                              <div class="courses-info">
                                                   <div class="courses-author">
-                                                       <img src="images/author-image3.jpg" class="img-responsive" alt="">
                                                        <span>Catherine</span>
                                                   </div>
                                                   <div class="courses-price free">
@@ -116,7 +122,7 @@ include "patials/header.php"
                                         <div class="courses-thumb">
                                              <div class="courses-top">
                                                   <div class="courses-image">
-                                                       <img src="images/courses-image4.jpg" class="img-responsive" alt="">
+                                                       <img src="images/zim/download5.JFIF" class="img-responsive" alt="">
                                                   </div>
                                                   <div class="courses-date">
                                                        <span><i class="fa fa-calendar"></i> 10 / 8 / 2018</span>
@@ -125,13 +131,12 @@ include "patials/header.php"
                                              </div>
 
                                              <div class="courses-detail">
-                                                  <h3><a href="#">Summer Kids</a></h3>
-                                                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                                  <h3><a href="#">Lets talk about chichen farm</a></h3>
+                                                  <p>All you need to know to build a succesefull chicken business.</p>
                                              </div>
 
                                              <div class="courses-info">
                                                   <div class="courses-author">
-                                                       <img src="images/author-image1.jpg" class="img-responsive" alt="">
                                                        <span>Mark Wilson</span>
                                                   </div>
                                                   <div class="courses-price">
@@ -147,7 +152,7 @@ include "patials/header.php"
                                         <div class="courses-thumb">
                                              <div class="courses-top">
                                                   <div class="courses-image">
-                                                       <img src="images/courses-image5.jpg" class="img-responsive" alt="">
+                                                       <img src="images/zim/download5.JFIF" class="img-responsive" alt="">
                                                   </div>
                                                   <div class="courses-date">
                                                        <span><i class="fa fa-calendar"></i> 5 / 10 / 2018</span>
@@ -156,13 +161,14 @@ include "patials/header.php"
                                              </div>
 
                                              <div class="courses-detail">
-                                                  <h3><a href="#">Business &amp; Management</a></h3>
-                                                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                                  <h3><a href="#">Business Management & Economics</a></h3>
+                                                  <p>Viewing farming from a business perspective.</p>
                                              </div>
+
 
                                              <div class="courses-info">
                                                   <div class="courses-author">
-                                                       <img src="images/author-image2.jpg" class="img-responsive" alt="">
+                                                       <img src="images/zim/black_jesica.jfif" class="img-responsive" alt="">
                                                        <span>Jessica</span>
                                                   </div>
                                                   <div class="courses-price free">

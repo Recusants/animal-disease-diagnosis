@@ -1,22 +1,31 @@
+<style type="text/css">
+#logo {
+  display: inline-block;
+  margin: 15px; /* margin: 20px was off */
+  float: left;
+  height: 400px;
+  width: auto; /* correct proportions to specified height */
+  border-radius: 50%; /* makes it a circle */
+}
+</style>
 <?php
 include "finder.php";
-include "patials/splashscreen.php";
+
+define('DB_SERVER', 'localhost');
+define('DB_USERNAME', 'root');
+define('DB_PASSWORD', '');
+define('DB_NAME', 'animal');
+/* Attempt to connect to MySQL database */
+$link = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_NAME);
+
 // Initialize the session
-session_start();
- 
+
 // Check if the user is already logged in, if yes then redirect him to welcome page
-if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
-    header("location: professionals.php");
-    exit;
-}
- 
 // Include config file
-require_once "scripts/config.php";
  
 // Define variables and initialize with empty values
 $username = $password = "";
 $username_err = $password_err = $login_err = "";
- 
 // Processing form data when form is submitted
 if($_SERVER["REQUEST_METHOD"] == "POST"){
  
@@ -37,7 +46,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     // Validate credentials
     if(empty($username_err) && empty($password_err)){
         // Prepare a select statement
-        $sql = "SELECT id, username, password FROM users WHERE username = ?";
+        $sql = "SELECT id, username, password, user_type FROM users WHERE username = ?";
         
         if($stmt = mysqli_prepare($link, $sql)){
             // Bind variables to the prepared statement as parameters
@@ -54,7 +63,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 // Check if username exists, if yes then verify password
                 if(mysqli_stmt_num_rows($stmt) == 1){                    
                     // Bind result variables
-                    mysqli_stmt_bind_result($stmt, $id, $username, $hashed_password);
+                    mysqli_stmt_bind_result($stmt, $id, $username, $hashed_password, $user_type);
                     if(mysqli_stmt_fetch($stmt)){
                         if(password_verify($password, $hashed_password)){
                             // Password is correct, so start a new session
@@ -63,10 +72,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                             // Store data in session variables
                             $_SESSION["loggedin"] = true;
                             $_SESSION["id"] = $id;
-                            $_SESSION["username"] = $username;                            
+                            $_SESSION["username"] = $username;   
+                            $_SESSION["user_type"] = $user_type;                        
                             
                             // Redirect user to welcome page
-                            header("location: professionals.php");
+                            header("location: index.php");
                         } else{
                             // Password is not valid, display a generic error message
                             $login_err = "Invalid username or password.";
@@ -90,10 +100,13 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 }
 ?>
  
-    <section id="contact">
+    <section id="contact" style="height: 90%; background-image: url(images/zim/wall2.jpg);">
         <div class="container">
             <div class="row">
-                <div class="col-md-6 col-sm-12">
+                <div class="col-md-3 col-sm-12">
+                </div>
+
+                <div class="col-md-6 col-sm-12" style="background-color:grey; border-radius: 1.5%;">
                     <h2>Login</h2>
                     <p>Please fill in your credentials to login.</p>
 
@@ -107,16 +120,16 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                         <div class="form-group">
                             <label>Username</label>
                             <input type="text" name="username" class="form-control <?php echo (!empty($username_err)) ? 'is-invalid' : ''; ?>" value="<?php echo $username; ?>">
-                            <span class="invalid-feedback"><?php echo $username_err; ?></span>
+                            <span class="invalid-feedback" style="color: red"><?php echo $username_err; ?></span>
                         </div>    
                         <div class="form-group">
                             <label>Password</label>
                             <input type="password" name="password" class="form-control <?php echo (!empty($password_err)) ? 'is-invalid' : ''; ?>">
-                            <span class="invalid-feedback"><?php echo $password_err; ?></span>
+                            <span class="invalid-feedback" style="color: red"><?php echo $password_err; ?></span>
                         </div>
                         <div class="form-group">
                             <input type="submit" class="btn btn-primary" value="Login">
-                            <a href="./"><input class="btn btn-primary" value="Back To Home"></a>
+                            <a href="tel:+26377777777"><input class="btn btn-primary" value="Customer service"></a>
                         </div>
                     </form>
                 </div> 

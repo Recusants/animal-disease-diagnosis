@@ -1,6 +1,12 @@
 <?php 
 include "finder.php";
-include "patials/header.php"
+include "patials/profesional_nav.php";
+
+session_start();
+if($_SESSION["loggedin"]!=""){
+}else{
+   header('location:./login.php');
+}
 ?>
 
 
@@ -11,14 +17,7 @@ include "patials/header.php"
                     <div class="col-md-offset-4 col-md-4 col-sm-12">
                          <div class="entry-form">
                               <form action="#" method="post">
-                                   <h2>Type the animal & symptom</h2>
-
-                                   <select id="animals" name="animal">
-                                       <option value="cattle">Cattle</option>
-                                       <option value="pig">Pig</option>
-                                       <option value="goat">Goat</option>
-                                   </select>
-
+                                   <h2>PLEASE ENTER THE APPEARING SYSMPTOMS</h2>
                                    <input type="search" name="symptom" class="form-control" placeholder="Symptom" required="">
 
                                    <button class="submit-btn form-control" id="form-submit">Search</button>
